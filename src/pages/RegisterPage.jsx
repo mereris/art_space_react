@@ -1,13 +1,15 @@
 // src/pages/RegisterPage.jsx
-import React, { useState } from 'react'; //импорт реакта и хука для памяти
+import React, { useState, useContext } from 'react'; //импорт реакта и хука для памяти
 import { Link, useNavigate } from 'react-router-dom'; //для навигации
 import { register } from '../api'; //API-функция для создания нового пользователя
+import { AuthContext } from '../contexts/AuthContext';
 
 //страница регистрации
 function RegisterPage() {
 
   //состояния
   const navigate = useNavigate(); //для перехода на другие страницы
+  const { loadUser } = useContext(AuthContext);
   const [selectedRole, setSelectedRole] = useState(null); //выбранная роль
   const [username, setUsername] = useState(''); //имя пользователя
   const [email, setEmail] = useState(''); //логин
